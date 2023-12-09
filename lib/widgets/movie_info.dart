@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/material.dart';
 import 'package:movie_app/bloc/get_movies_detail_bloc.dart';
 import 'package:movie_app/model/movie_detail.dart';
 import 'package:movie_app/model/movie_detail_response.dart';
@@ -154,7 +153,55 @@ class _MovieInfoState extends State<MovieInfo> {
         SizedBox(
           height: 10.0,
         ),
-        
+        Padding(
+          padding: const EdgeInsets.only(left: 10.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              Text(
+                "GENRES", style: TextStyle(
+                  color: Style.Colors.titleColor,
+                  fontWeight: FontWeight.w500,
+                  fontSize: 12.0
+                ),
+              ),
+              SizedBox(
+                height: 10.0,
+              ),
+              Container(
+                height: 30.0,
+                padding: EdgeInsets.only(top: 5.0),
+                child: ListView.builder(
+                  scrollDirection: Axis.horizontal,
+                  itemCount: detail.genres.length,
+                  itemBuilder: (context, index) {
+                    return Padding(
+                      padding: const EdgeInsets.only(right: 10.0),
+                      child: Container(
+                        padding: EdgeInsets.all(5.0),
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.all(Radius.circular(5.0)),
+                          border: Border.all(
+                            width: 1.0,
+                            color: Colors.white
+                          )
+                        ),
+                        child: Text(
+                          detail.genres[index].name,
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontWeight: FontWeight.w300,
+                            fontSize: 9.0
+                          ),
+                        ),
+                      ),
+                    );
+                  },
+                ),
+              ),
+            ],
+          ),
+        )
       ],
     );
   }

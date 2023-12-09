@@ -13,6 +13,14 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   @override
+
+  Widget anotherBuild(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+    );
+  }
+
+
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Style.Colors.mainColor,
